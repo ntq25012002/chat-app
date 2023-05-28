@@ -1,0 +1,31 @@
+.side-bar-list-chat {
+    max-width: 360px;
+
+    .side-bar-list-chat__item {
+        padding: 14px;
+        border-radius: 4px;
+        background-color: #ffffff;
+        display: flex;
+        margin-bottom: 12px;
+        position: relative;
+        .list-action {
+            // visibility: hidden;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        .side-bar-list-chat__item-content {
+            padding-left: 15px;
+            font-size: 14px;
+            color: var(--text-color-primary);
+        }
+        .side-bar-list-chat__item-content-text {
+            padding-top: 8px;
+            max-width: 275px;
+            display: block;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+}

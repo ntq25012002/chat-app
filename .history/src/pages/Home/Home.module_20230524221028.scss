@@ -1,0 +1,16 @@
+.content {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.title {
+    margin: 15px 0;
+}
+.avatar {
+    img {
+        width: 80px;
+        border-radius: 50%;
+    }
+}

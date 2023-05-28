@@ -1,0 +1,140 @@
+.sidebar-container {
+    height: 100vh;
+    display: flex;
+    .content-fixed {
+        padding: 24px 16px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        border-right: 1px solid #ffffff;
+
+        .tooltip {
+            position: relative;
+            display: block;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 110px;
+            color: var(--text-color-primary);
+            text-align: left;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            right: 0;
+            transform: translate(94%, 0);
+            opacity: 0;
+            transition: opacity 0.3s linear;
+            font-size: 12px;
+        
+            &:hover {
+                .tooltiptext {
+                    visibility: visible;
+                    opacity: 1;
+                }
+            }
+        }
+
+        .content-top {
+            .logo {
+                width: 42px;
+            }
+            div {
+                margin-bottom: 26px;
+                text-align: center;
+                font-size: 20px;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+            .active {
+                color: var(--color-primary);
+            }
+        }
+    
+        .content-bottom {
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: 100%;
+    
+            .btn-logout {
+                font-size: 20px;
+                width: 100%;
+                margin-bottom: 26px;
+            }
+            .setting {
+                width: 100%;
+                font-size: 20px;
+            }
+        }
+    }
+    .content-scroll {
+        padding: 24px 22px;
+        .title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            .title-text {
+                color: var(--color-primary);
+            }
+            .add-friend {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+                .icon-add-group,
+                .icon-add-friend {
+                    font-size: 16px;
+                }
+            }
+        }
+
+        .form-search {
+            margin-bottom: 20px;
+            .form-group {
+                display: flex;
+                align-items: center;
+                border: none;
+                background-color: #ffffff;
+                border-radius: 4px;
+                &:focus {
+                    border: 1px solid var(--color-primary);
+                    background-color: transparent;
+                }
+                .icon-search {
+                    padding: 10px 0 10px 12px;
+                    font-size: 14px;
+                }
+                .input {
+                    flex: 1;
+                    .input-control {
+                        padding: 10px 12px;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+        .recent-chat {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            .recent-chat-text{
+                font-size: 14px;
+                color: var(--text-color-primary);
+            }
+        }
+    }
+   
+}
+
+
+
+    

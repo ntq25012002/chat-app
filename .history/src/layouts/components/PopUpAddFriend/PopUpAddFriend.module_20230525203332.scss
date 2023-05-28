@@ -1,0 +1,24 @@
+.backdrop {
+    background-color: rgba(0,0,0,.3);    
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity .15s linear;
+}
+
+.popup-add-friend {
+    background-color: #ffffff;
+    border-radius: 4px;
+    .popup-add-friend__content__title {
+        color: var(--text-coloe-second);
+        font-size: 18px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}

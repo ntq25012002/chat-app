@@ -1,0 +1,18 @@
+.bg-layout {
+    background-color: gray ;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-add-friend {
+    position: absolute;
+    top: 0;
+    left: 0;
+    // transform: translate(-50%, -50%) ;
+}

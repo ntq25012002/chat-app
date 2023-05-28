@@ -1,0 +1,121 @@
+
+.wrapper {
+    height: var(--height-header);
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 1px 1px #0000001f;
+    .inner {
+        width: var(--width-page);
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.search {
+    background-color: #1618230f;
+    border-radius: 92px;
+    height: 46px;
+    display: flex;
+    overflow: hidden;
+
+    .search-input-container {
+        height: 100%;
+        width: 100%;
+        position: relative;
+
+        .input-search{
+            height:100%;
+            width: 360px;
+            padding-left: 16px;
+            caret-color: var(--color-primary);
+            background-color: transparent;
+        }
+        .btn-clear {
+            position: absolute;
+            right: 0;
+            padding: 15px 10px 15px 4px;
+            color: var(--text-color-primary);
+            opacity: 0.34;
+    
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+    .btn-search {
+        color: var(--text-color-primary);
+        opacity: 0.34;
+        padding: 10px 16px 10px;
+        font-size: 2rem;
+        position: relative;
+        &:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            border-left: 1px solid var(--border-color);
+            opacity: 0.34;
+            height: 28px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        &:hover {
+            background-color: var(--background-hover);
+            cursor: pointer;
+        }
+    }
+}
+
+
+.header-right-before-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    .btn-upload {
+        border: 1px solid var(--border-color);
+        font-size: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 120px;
+        height: 36px;
+        border-radius:4px;
+        background-color: transparent;
+        &:hover {
+            background-color: var(--background-hover);
+            cursor: pointer;
+        }
+        .btn-upload-text {
+            font-size: 1.6rem ;
+            padding-left: 12px;
+        }
+    }
+    .btn-login {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100px;
+        border-radius:4px;
+        height: 36px;
+        background-color: var(--color-primary);
+        color: var(--color-white);
+        font-weight: 600;
+        &:hover {
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)),#FE2C55;
+            cursor: pointer;
+        }
+    }
+
+    .btn-see-more {
+        padding: 10px;
+        font-size: 2rem;
+        background-color: transparent;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}

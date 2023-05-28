@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+$heightHeader: 60px;
+$widthPage: 1170px;
+$textColorPrimary: #161823;
+$colorPrimary: #FE2C55;
+$textColorSecond: #161823bf;
+
+:root {
+    --width-page: 1170px;
+    --height-header: 60px;
+    --color-primary: #FE2C55;
+    --text-color-primary: #161823;
+    --text-coloe-second: #161823bf;
+    --color-white: #FFFFFFFF;
+    --border-color: #0000001f;
+    --background-hover: rgb(22 24 35 / 3%);
+}
+
+html {
+    font-size:62.5%
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    // font-family: 'Montserrat', sans-serif;
+    // font-family: 'Roboto', sans-serif;
+    font-family: ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
+    font-size: 1.6rem;
+    text-rendering: optimizeSpeed;
+    color: $textColorPrimary;
+}
+
+button, input, [tabindex] {
+    border: none;
+    outline: none;
+}
+
+a[href] {
+    color: $textColorPrimary;
+    text-decoration: none;
+}
+
+.wrapper {
+    margin: 0 auto;
+    display: flex;
+    align-items: space-between;
+    flex-direction: column;
+}
+
+.container {
+    max-width: $widthPage;
+    width: $widthPage;
+    margin: 0 auto;
+    display: flex;
+}

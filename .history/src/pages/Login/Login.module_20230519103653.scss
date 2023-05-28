@@ -1,0 +1,26 @@
+.wrapper {
+    background-color: rgb(240, 253, 253);
+}
+.content {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+
+    .form-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            .form-label {
+                text-align: left;
+            }
+        }
+    }
+}

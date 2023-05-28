@@ -1,0 +1,16 @@
+.side-bar-list-chat {
+    min-width: 310px;
+
+    .side-bar-list-chat__item {
+        padding: 16px;
+        border-radius: 4px;
+        background-color: #ffffff;
+        display: flex;
+
+        .side-bar-list-chat__item-content {
+            padding-left: 15px;
+            font-size: 14px;
+            color: var(--text-color-primary);
+        }
+    }
+}
