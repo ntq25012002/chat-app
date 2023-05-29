@@ -76,11 +76,12 @@ class UserMongodb extends Authenticatable
         $query = DB::connection('mongodb')->table('users')->where($username, $val);
         $user = $query->first();
         $userInfo = ['user_info' => $user, 'obj' => new UserMongodb($user)];
+        
         return $userInfo;
     }
 
     public function getUsers($userId) {
-        $query = DB::connection('mongodb')->table('users')->where('id', '<>', $userId);
+        $query = DB::connection('mongodb')->table('users')->where('_id', '<>', $userId);
         $users = $query->get();
         return $users;
     }

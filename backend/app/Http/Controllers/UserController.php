@@ -15,7 +15,12 @@ class UserController extends Controller
     }
 
     public function listUsers() {
-        // $data = $this->user->
+        $users = $this->user->getUsers('647468e2cc01f1f8ef077a56');
+        echo "<pre>";
+        print_r($users);
+        echo "</pre>";
+        die;
+        // $data = $this->user->getUsers();
     }
 
 }

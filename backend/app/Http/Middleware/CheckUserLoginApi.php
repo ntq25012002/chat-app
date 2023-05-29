@@ -17,10 +17,21 @@ class CheckUserLoginApi
     public function handle(Request $request, Closure $next)
     {
        
+        // dd($request->header());
         $accessToken = new PersonalAccessTokens();
-        $result = $accessToken->checkExistToken($request->token);
-     
-        return $next($request);
+        $headers = $request->header();
+        $token = $headers['token'][0];
+
+        $result = $accessToken->checkExistToken($token);
+        echo "<pre>";
+        print_r($result);
+        echo "</pre>";
+        die;
+        if($result) {
+            return $next($request);
+        }else {
+            return response('Unauthorized', 401);
+        }
 
     }
 }

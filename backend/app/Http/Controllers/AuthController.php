@@ -77,8 +77,10 @@ class AuthController extends Controller
             $loginType => $request->username,
             'password' => $request->password
         ];
+      
         $user = $this->user->getOneUser($loginType, trim($request->username));
-       
+        
+        // đặt đặt email đểm tra người dùng đặt thoại
         if($user && Hash::check(trim($request->password),$user['user_info']['password'])) {
             $token = hash('sha256',Str::random(40));
             $dataToken = [
@@ -101,9 +103,20 @@ class AuthController extends Controller
         //     $user = Auth::user();
         //     // $token = $user->createToken('authToken')->accessToken;
         //     // $token = $user->createToken('api-token')->plainTextToken;
+        //     $token = hash('sha256',Str::random(40));
+        //     $dataToken = [
+        //         'name' => 'api-token',
+        //         'token' => $token,
+        //         'abilities' => ['*'],
+        //         'tokenable_id' => $user['user_info']['_id'],
+        //         'tokenable_type' => get_class($user['obj']),
+        //         'created_at' =>  time(),
+        //     ];
+        //     $accsessToken = $this->personalAccessTokens->insertAccessToken($dataToken);
         //     return response()->json([
         //         'user' => $user,
-        //         'status' => 500
+        //         'token' => $token,
+        //         'status' => 200
         //     ]);
         //     // return response()->json(['token' => $token], 200);
         // } else {

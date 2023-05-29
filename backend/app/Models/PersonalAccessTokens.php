@@ -21,6 +21,7 @@ class PersonalAccessTokens extends Model
 
     public function checkExistToken($token) {
         $query = DB::connection('mongodb')->table('personal_access_tokens')
+                // ->join('users', 'users._id', '=', 'personal_access_tokens.tokenable_id')
                 ->where('token', $token)
                 ->first();
         return $query;

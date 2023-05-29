@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +21,7 @@ Route::post('/register',[AuthController::class, 'register'])->name('api-register
 Route::post('/login',[AuthController::class, 'login'])->name('api-login');
 
 Route::middleware('check-user-login-api')->group(function() {
+    Route::post('/list-user', [UserController::class, 'listUsers'])->name('list-user');
     Route::post('/send-message', [MessageController::class, 'send'])->name('send-message');
 });
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
