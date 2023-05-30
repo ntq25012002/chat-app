@@ -1,0 +1,1 @@
+export {getListFriends, getListUsers } from './friendReducer'

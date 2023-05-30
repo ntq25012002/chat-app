@@ -1,19 +1,38 @@
-import React from "react";
+import React, {memo, useEffect, useState} from "react";
 import classNames from "classnames/bind";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import { useDispatch } from "react-redux";
-
+import { useDispatch, useSelector } from "react-redux";
+import { fetchUsers } from "~/api";
+import axios from "axios";
 import styles from "./PopUpAddFriend.module.scss";
 
 const cx = classNames.bind(styles);
 
 function PopUpAddFriend({showModal, closeModal, children}) {
+    const user =  useSelector((state) => state.user.user);
     const dispatch = useDispatch();
+    const [dataUsers, setDataUsers] = useState([]);
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+            const phone = user.phone;
+            console.log(user);
+              const response = await fetchUsers({phone});
+            //   const data = ;
+                // setDataUsers(data);
+            } catch (error) {
+              console.error('Error fetching data:', error);
+            }
+          };
+      
+          fetchData();
+    },[])
     
     const handleAddFriend = (e) => {
         e.preventDefault();
-        dispatch();
+        console.log('Them ban be');
+        // dispatch();
         // closeModal();
     }
     return (
@@ -99,4 +118,4 @@ function PopUpAddFriend({showModal, closeModal, children}) {
     );
 }
 
-export default PopUpAddFriend;
+export default memo(PopUpAddFriend);

@@ -17,16 +17,12 @@ class CheckUserLoginApi
     public function handle(Request $request, Closure $next)
     {
        
-        // dd($request->header());
         $accessToken = new PersonalAccessTokens();
         $headers = $request->header();
-        $token = $headers['token'][0];
-
+        // return response()->json($headers['authorization'][0]);
+        $token = $headers['authorization'][0];
         $result = $accessToken->checkExistToken($token);
-        echo "<pre>";
-        print_r($result);
-        echo "</pre>";
-        die;
+       
         if($result) {
             return $next($request);
         }else {

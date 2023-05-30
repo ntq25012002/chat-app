@@ -80,8 +80,8 @@ class UserMongodb extends Authenticatable
         return $userInfo;
     }
 
-    public function getUsers($userId) {
-        $query = DB::connection('mongodb')->table('users')->where('_id', '<>', $userId);
+    public function getUsers($phone) {
+        $query = DB::connection('mongodb')->table('users')->where('phone', '<>', $phone);
         $users = $query->get();
         return $users;
     }

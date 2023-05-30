@@ -14,12 +14,17 @@ class UserController extends Controller
         $this->user = $user;
     }
 
-    public function listUsers() {
-        $users = $this->user->getUsers('647468e2cc01f1f8ef077a56');
-        echo "<pre>";
-        print_r($users);
-        echo "</pre>";
-        die;
+    public function listUsers(Request $request) {
+        $users = $this->user->getUsers($request->phone);
+        // echo "<pre>";
+        // print_r($users);
+        // echo "</pre>";
+        // die;
+        return response()->json([
+            'status' => 200,
+            'listUsers' => $users
+        ]);
+
         // $data = $this->user->getUsers();
     }
 

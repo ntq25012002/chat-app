@@ -27,6 +27,7 @@
         .form-group {
             display: flex;
             flex-direction: column;
+            margin-top: 16px;
             .form-label {
                 text-align: left;
                 font-size: 14px;
@@ -38,13 +39,15 @@
                 border-radius: 4px;
                 font-size: 14px;
                 min-width: 325px;
-                margin-bottom: 16px;
                 &:focus {
                     border: 1px solid #21aa93;
 
                     outline: #21aa93;
                 }
             }
+        }
+        .form-input-remember {
+            margin-top: 16px;
         }
         .btn-submit {
             margin-top: 20px;

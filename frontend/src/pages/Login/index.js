@@ -1,16 +1,16 @@
-import React, {useReducer} from 'react';
+import React from 'react';
 // import classNames from 'classnames/bind';
 import {useNavigate } from 'react-router-dom'
-import axios from 'axios';
+// import axios from 'axios';
 import { useDispatch } from 'react-redux';
-import AuthForm from '~/components/AuthForm';
 
+import AuthForm from '~/components/AuthForm';
+import { login as loginUser } from '~/api';
 // import styles from './Login.module.scss';
 // import {userReducer, initialState, LOGIN_SUCCESS, LOGOUT, setLogin, setLogout} from '~/reducer';
 import { loginSuccess } from '~/reducer/AuthReducer';
 
 function Login() {
-    // const [state, dispatch] = useReducer(userReducer, initialState)
     const navigate  = useNavigate();
     const dispatch = useDispatch();
     const initialFormData = {
@@ -21,13 +21,12 @@ function Login() {
     const login = async (data) => {
         try {
             const { username, password } = data;
-            const response = await axios.post('http://127.0.0.1:8080/api/login', { username, password });
+            const response = await loginUser({ username, password });
             // Lưu token vào localStorage hoặc sessionStorage
             sessionStorage.setItem('token', response.data.token);
             dispatch(loginSuccess(response.data.user))
-            // dispatch(setLogin(response.data.user));
+
             navigate('/');
-         
           } catch (error) {
             console.error(error);
           }

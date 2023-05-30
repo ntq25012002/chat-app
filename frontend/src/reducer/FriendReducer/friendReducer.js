@@ -1,23 +1,26 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  users: [],
-  friends: [],
+  user: null,
+  friend: null,
 };
 
 const friendSlice = createSlice({
   name: 'friend',
   initialState,
   reducers: {
-    getListUser: (state, action) => {
+    getListUsers: (state, action) => {
       console.log(action);
-      state.users = [...action.payload];
+      // state.isLoggedIn = true;
+      // state.user = action.payload;
     },
-    getListFriend: (state, action) => {
-      state.friends = [...action.payload];
+    getListFriends: (state,action) => {
+      console.log(action);
+      // state.isLoggedIn = false;
+      // state.user = null;
     },
   },
 });
 
-export const { getListUser, getListFriend } = friendSlice.actions;
+export const { getListUsers, getListFriends } = friendSlice.actions;
 export default friendSlice.reducer;

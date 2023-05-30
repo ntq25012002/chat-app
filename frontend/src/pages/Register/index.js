@@ -1,9 +1,11 @@
 import React from 'react';
-import AuthForm from '~/components/AuthForm';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import {loginSuccess} from '~/reducer/AuthReducer';
 import axios from 'axios';
+
+import AuthForm from '~/components/AuthForm';
+import { register as registerUser } from '~/api';
+import {loginSuccess} from '~/reducer/AuthReducer';
 
 function Register () {
 
@@ -20,7 +22,7 @@ function Register () {
 
         try {
             const {name, password, email, phone} = data;
-            const response = await axios.post('http://127.0.0.1:8080/api/register', { name, password, email, phone });
+            const response = await registerUser({ name, password, email, phone });
             // Lưu token vào localStorage hoặc sessionStorage
             sessionStorage.setItem('token', response.data.token);
             dispatch(loginSuccess(response.data.user))

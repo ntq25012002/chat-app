@@ -13,13 +13,12 @@ function AuthForm( {...props} ) {
     const [rePassword, setRepassword] = useState('');
 
     const validateForm = () => {
-        let isValid = true;
         const newErrors = {};
         // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         const phoneRegex = /[0-9`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
         // const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-
+        // const phoneRegex = /d/;
         // Form login
         if(props.loginForm) {
             console.log('login form');
@@ -27,7 +26,7 @@ function AuthForm( {...props} ) {
                 newErrors.username = 'Nhập email hoặc số điện thoại';
             } else if( isNaN(formData.username) && !emailRegex.test(formData.username)) {
                 newErrors.username = 'Email chưa đúng định dạng';
-            }else if(!isNaN(formData.username) && phoneRegex.test(formData.username)) {
+            }else if(phoneRegex.test(formData.username)) {
                 newErrors.username = 'Số điện thoại chưa đúng định dạng';
             }else {
                 delete newErrors.username
@@ -79,12 +78,14 @@ function AuthForm( {...props} ) {
         }
     
         setErrors(newErrors);
-        return Object.keys(errors).length === 0;
+        console.log('so loi: ', newErrors);
+        return Object.keys(newErrors).length === 0;
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
         validateForm()
+        console.log('loi', validateForm());
         // const data = new FormData(formRef.current);
         if (validateForm()) {
             props.onSubmit(formData);
@@ -95,7 +96,7 @@ function AuthForm( {...props} ) {
 
     const handleInputChange = (e) => {        
         setFormData({
-          ...formData,
+            ...formData,
             [e.target.name]: e.target.value
         });
     }
@@ -129,7 +130,7 @@ function AuthForm( {...props} ) {
                                         )}
 
                                     </div>
-                                    <div className='d-flex'>
+                                    <div className={cx('form-input-remember')}>
                                         <div className={cx('form-control')}>
                                             <input type="checkbox" className={cx('check_remember')} />
                                             <label className={cx('remember_login')}>Ghi nhớ đăng nhập</label>
